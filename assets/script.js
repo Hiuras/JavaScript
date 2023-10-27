@@ -36,34 +36,4 @@ document.getElementById("banner").addEventListener("mousedown", function(event) 
   });
   
 
-console.log (addEventListener)
-
-
-
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-let currentSlide = 0;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.style.display = i === index ? 'block' : 'none';
-  });
-
-  dots.forEach((dot, i) => {
-    if (i === index) {
-      dot.classList.add('dot_selected');
-    } else {
-      dot.classList.remove('dot_selected');
-    }
-  });
-}
-
-showSlide(currentSlide);
-
-dots.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    currentSlide = index;
-    showSlide(currentSlide);
-  });
-});
+console.log (addEventListener);
