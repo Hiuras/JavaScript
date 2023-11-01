@@ -36,4 +36,35 @@ document.getElementById("banner").addEventListener("mousedown", function(event) 
   });
   
 
-console.log (addEventListener);
+console.log (addEventListener)
+
+document.addEventListener("DOMContentLoaded", function() {
+	var images = document.querySelectorAll(".banner-img");
+	var currentImageIndex = 0;
+	var totalImages = images.length;
+	var dots = document.querySelectorAll(".dot");
+
+	function showImage(index) {
+		for (var i = 0; i < totalImages; i++) {
+			images[i].classList.remove("current");
+		}
+		images[index].classList.add("current");
+
+		for (var i = 0; i < totalImages; i++) {
+			dots[i].classList.remove("dot_selected");
+		}
+		dots[index].classList.add("dot_selected");
+	}
+
+	showImage(currentImageIndex);
+
+	document.querySelector(".arrow_left").addEventListener("click", function() {
+		currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+		showImage(currentImageIndex);
+	});
+
+	document.querySelector(".arrow_right").addEventListener("click", function() {
+		currentImageIndex = (currentImageIndex + 1) % totalImages;
+		showImage(currentImageIndex);
+	});
+});
