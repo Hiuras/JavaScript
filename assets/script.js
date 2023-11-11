@@ -38,11 +38,16 @@ document.getElementById("banner").addEventListener("mousedown", function(event) 
 
 console.log (addEventListener)
 
+var imageTexts = [
+	"Tirages haut définition grand format"
+]
+
 document.addEventListener("DOMContentLoaded", function() {
 	var images = document.querySelectorAll(".banner-img");
 	var currentImageIndex = 0;
 	var totalImages = images.length;
 	var dots = document.querySelectorAll(".dot");
+	var text = document.querySelectorAll(".Banner-text")
 
 	function showImage(index) {
 		for (var i = 0; i < totalImages; i++) {
@@ -54,6 +59,11 @@ document.addEventListener("DOMContentLoaded", function() {
 			dots[i].classList.remove("dot_selected");
 		}
 		dots[index].classList.add("dot_selected");
+
+		for (var i = 0; i < totalImages; i++) {
+			text[i].classList.remove("current");
+		}
+		text[index].classList.add("current");
 	}
 
 	showImage(currentImageIndex);
